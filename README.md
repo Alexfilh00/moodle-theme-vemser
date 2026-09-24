@@ -8,9 +8,11 @@ Este repositório contém somente o tema. A instalação do Moodle, seu banco de
 
 - Login responsivo com imagem institucional, logo e formulário nativo do Moodle.
 - Fontes Inter locais e estilos próprios.
-- Página inicial com cabeçalho e destaque principal configurável.
-- Configuração administrativa do logo da página inicial, imagem, textos e botão do destaque.
-- Conteúdo nativo da página inicial preservado para cursos e avisos.
+- Página inicial pública responsiva com busca de cursos, carrossel manual e rodapé institucional.
+- Até quatro destaques com imagem, textos e link configuráveis.
+- Dez atalhos de acesso rápido, quatro fornecedores e banner de documentos configuráveis.
+- Seis cursos e três avisos reais, com visibilidade controlada pelo Moodle.
+- Oito cores da página inicial configuráveis, preservando o visual do login.
 
 ## Requisitos
 
@@ -43,23 +45,53 @@ Não substitua o `config.php` da raiz do Moodle pelo arquivo deste repositório.
 
 ## Configuração
 
-Acesse **Administração do site → Aparência → Temas → VemSer** para configurar o logo da página inicial e o destaque principal. O logo e o fundo do login continuam sendo os arquivos `pix/logo-vemser.png` e `pix/login-background.png`.
+Acesse **Administração do site → Aparência → Temas → VemSer** para configurar a página pública. Salvar as configurações invalida os caches do tema.
 
-Para exibir os cursos e avisos já cadastrados, configure os itens da página inicial para visitantes e usuários autenticados: habilite a lista de cursos e os avisos, permita pelo menos seis cursos no limite de exibição e defina três avisos. Os avisos devem pertencer ao fórum da página inicial; a visibilidade dos cursos e as permissões dos usuários continuam sendo controladas pelo Moodle. Este repositório não inclui esses registros do banco de dados.
+| Área | O que o administrador pode configurar |
+| --- | --- |
+| Identidade visual | Logo do cabeçalho e do rodapé da página inicial |
+| Cores | Cor principal, ícones, texto principal e secundário, fundo da página, seções, cards e texto dos botões |
+| Destaques | Imagem, texto superior, título, descrição, botão e destino de até quatro slides |
+| Acesso rápido | Nome, imagem e endereço de dez plataformas |
+| Fornecedores | Nome, imagem e endereço de quatro parceiros |
+| Documentos | Imagem do banner e endereço de destino |
+| Navegação e rodapé | Trilhas, listagens de plataformas e fornecedores, privacidade, cookies, suporte e redes sociais |
+
+Use imagens PNG, JPEG ou WebP. Para destaques, prefira imagens horizontais com o assunto principal à direita e espaço à esquerda para o texto. Para logos, use imagens quadradas, preferencialmente com fundo transparente. O banner de documentos usa a imagem à direita.
+
+O primeiro destaque está sempre ativo. Para ativar os demais, preencha seus títulos. As setas e os indicadores aparecem apenas quando existe mais de um slide. O carrossel não avança automaticamente.
+
+Nos atalhos e fornecedores, apagar o nome oculta o card. Um card sem link válido aparece como **Em breve**, sem ação. Links aceitam URLs HTTP(S) completas ou caminhos relativos à instalação iniciados por `/`, como `/course/`. Destinos vazios no rodapé são omitidos. O logo e o fundo do login continuam sendo os arquivos `pix/logo-vemser.png` e `pix/login-background.png`.
+
+### Cursos e avisos
+
+O renderizador da página inicial mostra até **seis cursos** do catálogo, na ordem do Moodle, e **três avisos** do fórum de notícias da página inicial (fixados primeiro, depois mais recentes). O curso do site não é incluído. As regras de visibilidade, permissões, grupos e datas dos avisos são verificadas pelo Moodle.
+
+As seções personalizadas substituem as listas padrão da página inicial, evitando duplicação. Os campos `frontpage`, `frontpageloggedin`, `frontpagecourselimit` e `newsitems` não controlam esses cards. O conteúdo da seção de atividades da página inicial continua disponível pelo fluxo nativo. Não há alteração em matrículas, acesso ao conteúdo dos cursos ou autenticação.
+
+- **Capas dos cursos:** envie a imagem nos arquivos de resumo do cadastro do curso.
+- **Imagens dos avisos:** envie uma imagem pelo editor da publicação ou como anexo. A primeira imagem local válida é usada como capa. URLs externas coladas no texto, inclusive links de rascunho de outro Moodle, não são usadas como capas; reenvie essas imagens no Moodle atual.
+- Sem imagem, o card usa um ícone substituto. Duração e nível não são inventados: esses metadados ainda não são exibidos.
+- A busca do cabeçalho pesquisa o catálogo de cursos.
+
+Para a página ser acessível sem login, mantenha desativada a exigência global de autenticação do Moodle e verifique a visibilidade dos cursos e do fórum para visitantes. O tema não contorna restrições do site. Estes registros e configurações pertencem ao banco de dados e não são incluídos no repositório.
+
+### Cores e acessibilidade
+
+As cores configuráveis se aplicam somente à página inicial. O login finalizado mantém seus estilos. Escolha combinações com contraste adequado, especialmente texto dos botões contra a cor principal. Alterações de cor são validadas como valores hexadecimais de seis dígitos; valores inválidos usam os padrões.
 
 ## Estado atual e limitações
 
-- Há um único destaque; seus três indicadores são apenas visuais.
-- Trilhas, Notícias, Documentos e Plataformas ainda possuem links provisórios (`#`).
-- O menu principal é ocultado em telas menores, sem menu móvel substituto.
-- Não há cards personalizados de cursos ou avisos.
-- Os templates de login e página inicial ainda precisam integrar a saída `standard_end_of_body_html` e validar os comportamentos JavaScript.
+- As imagens, os links e os textos institucionais precisam ser configurados pelo administrador para reproduzir a referência visual.
+- Não há funcionalidade de favoritos nos cards de cursos.
+- O login existente foi preservado; a integração de `standard_end_of_body_html` foi adicionada somente à página inicial.
 - As URLs das fontes partem de `/theme/vemser/fonts/`; instalações do Moodle em um subdiretório podem exigir ajuste.
 
 ## Organização
 
 - `config.php`: herança do Boost e definição dos layouts.
-- `lib.php`: carregamento do SCSS e entrega dos arquivos configuráveis.
+- `lib.php`: SCSS, entrega dos arquivos configuráveis e preparação dos dados da página inicial.
+- `renderers.php`: apresentação das seções públicas no fluxo nativo do Moodle.
 - `settings.php`: configurações administrativas.
 - `version.php`: identificação e versão do plugin.
 - `layout/` e `templates/`: layouts PHP e templates Mustache.
