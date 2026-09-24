@@ -61,29 +61,6 @@ function theme_vemser_pluginfile(
         send_file_not_found();
     }
 
-    $fs = get_file_storage();
-
-    $filename = array_pop($args);
-    $filepath = $args ? '/' . implode('/', $args) . '/' : '/';
-
-    $file = $fs->get_file(
-        $context->id,
-        'theme_vemser',
-        $filearea,
-        0,
-        $filepath,
-        $filename
-    );
-
-    if (!$file || $file->is_directory()) {
-        send_file_not_found();
-    }
-
-    send_stored_file(
-        $file,
-        0,
-        0,
-        $forcedownload,
-        $options
-    );
+    $theme = theme_config::load('vemser');
+    return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
 }
