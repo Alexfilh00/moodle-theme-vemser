@@ -4,6 +4,7 @@
 !/README.md
 !/config.php
 !/lib.php
+!/renderers.php
 !/settings.php
 !/version.php
 !/layout/

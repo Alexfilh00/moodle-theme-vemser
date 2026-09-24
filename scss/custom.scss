@@ -741,423 +741,164 @@ body.vemser-login-page {
     }
 }
 
-/* ==========================================================
-   VEMSER - PÁGINA INICIAL
-   ========================================================== */
-
-.vemser-frontpage {
-    margin: 0;
-    background: #fff;
-}
-
+/* Página pública. Todas as regras ficam restritas ao layout frontpage. */
+body.vemser-frontpage { margin: 0; background: #fff; }
 .vemser-home {
+    color: var(--vs-text);
+    background: var(--vs-background);
     min-height: 100vh;
-    background: #fff;
-}
-
-
-/* ==========================================================
-   HEADER
-   ========================================================== */
-
-.vemser-home-header {
-    position: relative;
-    z-index: 20;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid #eeeeee;
-}
-
-.vemser-header-container {
-    width: min(1440px, calc(100% - 64px));
-    height: 82px;
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    gap: 48px;
-}
-
-.vemser-header-brand {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-}
-
-.vemser-header-logo {
-    display: block;
-    width: 145px;
-    height: auto;
-}
-
-.vemser-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    margin-left: auto;
-}
-
-.vemser-header-nav a {
-    position: relative;
-    color: #4b4b4b;
     font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.18s ease;
-}
-
-.vemser-header-nav a:hover,
-.vemser-header-nav a.active {
-    color: #e9680c;
-}
-
-.vemser-header-nav a.active::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -30px;
-    left: 0;
-    height: 3px;
-    border-radius: 10px 10px 0 0;
-    background: #f47721;
-}
-
-.vemser-header-actions {
-    display: flex;
-    align-items: center;
-    margin-left: 18px;
-}
-
-.vemser-header-login {
-    display: inline-flex;
-    min-width: 108px;
-    min-height: 44px;
-    padding: 0 22px;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #fff !important;
-    background: #f47721;
-
-    border-radius: 10px;
-
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none !important;
-
-    box-shadow: 0 8px 20px rgba(244, 119, 33, 0.18);
-
-    transition:
-        transform 0.18s ease,
-        background-color 0.18s ease,
-        box-shadow 0.18s ease;
-}
-
-.vemser-header-login:hover {
-    background: #df650f;
-    transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(244, 119, 33, 0.24);
-}
-
-
-/* ==========================================================
-   HERO
-   ========================================================== */
-
-.vemser-hero {
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 43% 57%;
-
-    width: min(1520px, calc(100% - 48px));
-    min-height: 590px;
-
-    margin: 24px auto 0;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff8f1 0%,
-            #fff4e8 55%,
-            #fff0df 100%
-        );
-
-    border-radius: 24px;
-}
-
-.vemser-hero-content {
-    position: relative;
-    z-index: 3;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-    padding: 72px 40px 72px 72px;
-}
-
-.vemser-hero-eyebrow {
-    display: inline-flex;
-    margin-bottom: 18px;
-
-    color: #e9680c;
-
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.vemser-hero h1 {
-    max-width: 570px;
-    margin: 0;
-
-    color: #292929;
-
-    font-size: clamp(42px, 4vw, 64px);
-    line-height: 1.03;
-    letter-spacing: -0.045em;
-    font-weight: 700;
-}
-
-.vemser-hero p {
-    max-width: 530px;
-
-    margin: 26px 0 32px;
-
-    color: #676767;
-
-    font-size: 17px;
-    line-height: 1.65;
-}
-
-.vemser-hero-button {
-    display: inline-flex;
-
-    min-height: 50px;
-    padding: 0 24px;
-
-    align-items: center;
-    gap: 14px;
-
-    color: #fff !important;
-    background: #f47721;
-
-    border-radius: 10px;
-
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none !important;
-
-    box-shadow: 0 10px 25px rgba(244, 119, 33, 0.22);
-
-    transition:
-        transform 0.18s ease,
-        background-color 0.18s ease;
-}
-
-.vemser-hero-button:hover {
-    background: #df650f;
-    transform: translateY(-2px);
-}
-
-
-/* ==========================================================
-   HERO IMAGE
-   ========================================================== */
-
-.vemser-hero-media {
-    position: relative;
-    min-height: 590px;
-    overflow: hidden;
-}
-
-.vemser-hero-media::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        90deg,
-        #fff4e8 0%,
-        rgba(255, 244, 232, 0.55) 8%,
-        rgba(255, 244, 232, 0) 30%
-    );
-
-    pointer-events: none;
-}
-
-.vemser-hero-media img {
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    inset: 0;
-
-    object-fit: cover;
-    object-position: center;
-
-    display: block;
-}
-
-
-/* ==========================================================
-   CAROUSEL INDICATORS
-   ========================================================== */
-
-.vemser-hero-dots {
-    position: absolute;
-    z-index: 5;
-
-    bottom: 25px;
-    left: 50%;
-
-    display: flex;
-    align-items: center;
-    gap: 7px;
-
-    transform: translateX(-50%);
-}
-
-.vemser-hero-dots span {
-    width: 7px;
-    height: 7px;
-
-    background: rgba(60, 60, 60, 0.25);
-
-    border-radius: 999px;
-
-    transition: all 0.2s ease;
-}
-
-.vemser-hero-dots span.active {
-    width: 25px;
-    background: #f47721;
-}
-
-
-/* ==========================================================
-   CONTEÚDO NATIVO MOODLE
-   ========================================================== */
-
-.vemser-moodle-frontpage-content {
-    width: min(1440px, calc(100% - 64px));
-    margin: 64px auto;
-}
-
-
-/* ==========================================================
-   RESPONSIVO
-   ========================================================== */
-
-@media (max-width: 1100px) {
-
-    .vemser-header-container {
-        width: calc(100% - 40px);
-        gap: 24px;
+    line-height: 1.5;
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+        outline: 3px solid var(--vs-primary); outline-offset: 4px;
     }
-
-    .vemser-header-nav {
-        gap: 20px;
-    }
-
-    .vemser-hero {
-        grid-template-columns: 48% 52%;
-        width: calc(100% - 32px);
-    }
-
-    .vemser-hero-content {
-        padding: 56px 36px;
-    }
-
-    .vemser-hero h1 {
-        font-size: 44px;
+    h1, h2, h3, p { margin-top: 0; }
+    h2 { font-size: 23px; font-weight: 700; line-height: 1.25; letter-spacing: -.6px; margin-bottom: 4px; }
+    h3 { font-weight: 700; line-height: 1.4; }
+    [hidden] { display: none !important; }
+    section[id] { scroll-margin-top: 24px; }
+    .vs-header { background: var(--vs-card); border-bottom: 1px solid rgba(128,128,128,.12); }
+    .vs-header-inner { max-width: 1440px; min-height: 82px; padding: 12px 28px; margin: auto; display: flex; align-items: center; gap: 24px; }
+    .vs-brand { flex-shrink: 0; margin-right: 36px; }
+    .vs-brand img { width: 128px; height: auto; display: block; }
+    .vs-nav { display: flex; align-items: center; gap: 25px; }
+    .vs-nav a { font-size: 13px; white-space: nowrap; position: relative; padding: 14px 0; }
+    .vs-nav a:hover { color: var(--vs-primary); }
+    .vs-nav [aria-current] { font-weight: 700; }
+    .vs-nav [aria-current]::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--vs-primary); }
+    .vs-search { margin-left: auto; display: flex; align-items: center; width: 250px; min-width: 120px; background: var(--vs-surface); border: 1px solid rgba(128,128,128,.22); border-radius: 11px; }
+    .vs-search input { border: 0; background: transparent; padding: 12px 14px; width: 100%; min-width: 0; color: var(--vs-text); font-size: 12px; }
+    .vs-search button { border: 0; background: transparent; padding: 10px 14px; color: var(--vs-text); }
+    .vs-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 12px 24px; min-height: 44px; border: 1px solid var(--vs-primary); border-radius: 9px; background: var(--vs-primary); color: var(--vs-buttontext); font-size: 14px; font-weight: 600; white-space: nowrap; transition: box-shadow .2s, transform .2s; }
+    .vs-button:hover { color: var(--vs-buttontext); transform: translateY(-1px); box-shadow: 0 5px 15px rgba(0,0,0,.12); }
+    .vs-hero { position: relative; overflow: hidden; background: var(--vs-surface); }
+    .vs-slide { position: relative; min-height: 440px; display: flex; align-items: center; }
+    .vs-hero-image { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; object-position: center; }
+    .vs-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,253,249,.97), rgba(255,253,249,.92) 30%, rgba(255,253,249,.1) 65%, transparent); }
+    .vs-hero-copy { position: relative; z-index: 1; width: min(1440px, 100%); margin: auto; padding: 50px 75px 65px; }
+    .vs-hero-copy > * { max-width: 425px; }
+    .vs-hero-copy h1, .vs-hero-copy h2 { font-size: clamp(32px, 3.2vw, 46px); color: var(--vs-text); line-height: 1.07; letter-spacing: -1.5px; font-weight: 750; margin-bottom: 18px; }
+    .vs-hero-copy h1 span, .vs-hero-copy h2 span { color: var(--vs-primary); }
+    .vs-hero-copy > p:not(.vs-eyebrow) { font-size: 16px; line-height: 1.6; margin-bottom: 24px; color: var(--vs-text); }
+    .vs-eyebrow { font-size: 12px; font-weight: 600; color: var(--vs-primary); margin-bottom: 12px; }
+    .vs-prev, .vs-next { position: absolute; top: 50%; z-index: 2; border: 0; border-radius: 50%; background: #fff; color: #17202d; width: 44px; height: 44px; font-size: 30px; box-shadow: 0 2px 12px rgba(0,0,0,.08); transform: translateY(-50%); }
+    .vs-prev { left: 16px; } .vs-next { right: 16px; }
+    .vs-dots { position: absolute; bottom: 18px; left: max(75px, calc((100% - 1290px) / 2)); z-index: 2; display: flex; gap: 6px; }
+    .vs-dots button { width: 38px; height: 24px; border: 0; background: transparent; padding: 10px 0; }
+    .vs-dots button::after { content: ''; display: block; height: 4px; background: #a8adb3; border-radius: 4px; }
+    .vs-dots [aria-pressed=true]::after { background: var(--vs-primary); }
+    .vs-content { max-width: 1440px; padding: 16px 28px 40px; margin: auto; }
+    .vs-section { padding: 25px 24px; border-radius: 16px; background: var(--vs-surface); margin-bottom: 16px; }
+    .vs-section-heading { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+    .vs-section-heading p { color: var(--vs-muted); font-size: 14px; margin: 0; }
+    .vs-section-icon { font-size: 32px; color: var(--vs-accent); width: 34px; flex-shrink: 0; text-align: center; padding-top: 2px; }
+    .vs-more { color: var(--vs-primary); margin-left: auto; align-self: center; display: flex; gap: 14px; font-size: 14px; white-space: nowrap; }
+    .vs-more:hover { color: var(--vs-primary); text-decoration: underline; }
+    .vs-quick-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 16px; }
+    .vs-quick-card { min-height: 120px; padding: 18px 8px 12px; background: var(--vs-card); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; text-align: center; font-size: 12px; box-shadow: 0 4px 20px rgba(24,39,60,.025); overflow-wrap: anywhere; }
+    .vs-quick-card img { width: 44px; height: 44px; object-fit: contain; }
+    .vs-quick-card small { font-size: 10px; color: var(--vs-muted); margin-top: auto; }
+    .vs-monogram { width: 46px; height: 46px; border-radius: 12px; background: var(--vs-surface); color: var(--vs-primary); display: inline-flex; justify-content: center; align-items: center; font-size: 26px; font-weight: 700; flex-shrink: 0; }
+    .vs-course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .vs-course-card { border-radius: 12px; background: var(--vs-card); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(24,39,60,.03); }
+    .vs-course-cover { aspect-ratio: 2.15; position: relative; background: linear-gradient(135deg, #ffedd8, #fff7ed); display: flex; align-items: center; justify-content: center; color: var(--vs-primary); font-size: 48px; }
+    .vs-course-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .vs-category { position: absolute; top: 10px; left: 10px; max-width: calc(100% - 20px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; line-height: 1.5; text-transform: uppercase; color: #fff; background: #17202de6; padding: 4px 8px; border-radius: 5px; }
+    .vs-course-copy { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+    .vs-course-copy h3 { font-size: 17px; margin: 0 0 22px; }
+    .vs-course-copy > span { font-size: 12px; color: var(--vs-muted); margin-top: auto; display: flex; justify-content: space-between; }
+    .vs-supplier-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+    .vs-supplier-card { display: flex; align-items: center; gap: 18px; padding: 16px; border-radius: 13px; background: var(--vs-card); min-width: 0; }
+    .vs-supplier-card > img { width: 64px; height: 64px; object-fit: contain; border-radius: 5px; }
+    .vs-supplier-card h3 { font-size: 15px; margin: 0 0 3px; overflow-wrap: anywhere; }
+    .vs-supplier-card div span { font-size: 12px; color: var(--vs-muted); }
+    .vs-supplier-card > span:last-child:not(.vs-monogram) { margin-left: auto; font-size: 24px; }
+    .vs-documents { position: relative; min-height: 190px; border-radius: 14px; overflow: hidden; margin-bottom: 16px; background: linear-gradient(105deg, #fff9ef, #fff1dc); }
+    .vs-documents-image { position: absolute; height: 100%; width: 52%; right: 0; object-fit: cover; }
+    .vs-documents::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #fff9ef 40%, rgba(255,249,239,.85) 50%, transparent 75%); }
+    .vs-documents-copy { position: relative; z-index: 1; display: flex; gap: 24px; padding: 32px; max-width: 70%; }
+    .vs-documents-copy h2 { font-size: 25px; }
+    .vs-documents-copy p { color: var(--vs-muted); margin-bottom: 20px; }
+    .vs-documents .vs-section-icon { font-size: 42px; width: 48px; }
+    .vs-button-outline { background: transparent; color: var(--vs-primary); font-weight: 500; }
+    .vs-button-outline:hover { color: var(--vs-primary); }
+    .vs-soon { display: inline-block; padding: 7px 14px; border: 1px solid currentColor; border-radius: 7px; color: var(--vs-muted); font-size: 12px; }
+    .vs-news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .vs-news-card { display: flex; background: var(--vs-card); border-radius: 11px; overflow: hidden; min-height: 182px; }
+    .vs-news-cover { width: 38%; flex-shrink: 0; background: #ffedd8; color: var(--vs-primary); display: flex; align-items: center; justify-content: center; font-size: 38px; }
+    .vs-news-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .vs-news-copy { padding: 20px 15px; min-width: 0; }
+    .vs-news-copy time { font-size: 10px; color: var(--vs-muted); }
+    .vs-news-copy h3 { font-size: 13px; margin: 12px 0 8px; }
+    .vs-news-copy p { color: var(--vs-muted); font-size: 11px; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    a.vs-quick-card, a.vs-course-card, a.vs-supplier-card, a.vs-news-card { transition: transform .2s, box-shadow .2s; }
+    a.vs-quick-card:hover, a.vs-course-card:hover, a.vs-supplier-card:hover, a.vs-news-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(24,39,60,.1); color: var(--vs-text); }
+    .vs-empty { color: var(--vs-muted); padding: 12px 0; margin: 0; }
+    .vs-footer { width: calc(100% - 56px); max-width: 1384px; margin: 0 auto; border-top: 1px solid rgba(128,128,128,.15); padding: 32px 24px 48px; display: flex; align-items: center; flex-wrap: wrap; gap: 28px; }
+    .vs-footer > a img { width: 128px; height: auto; }
+    .vs-footer-brand { border-left: 1px solid rgba(128,128,128,.15); padding-left: 28px; font-size: 13px; }
+    .vs-footer-brand p { color: var(--vs-muted); margin: 6px 0 0; font-size: 12px; }
+    .vs-footer nav { display: flex; gap: 20px; margin-left: auto; flex-wrap: wrap; font-size: 12px; color: var(--vs-muted); }
+    .vs-footer nav .fa { font-size: 21px; }
+    .vs-system-footer { width: 100%; font-size: 12px; }
+}
+@media (max-width: 1200px) {
+    .vemser-home {
+        .vs-header-inner { gap: 18px; } .vs-brand { margin-right: 10px; }
+        .vs-nav { gap: 16px; } .vs-search { width: 180px; }
+        .vs-quick-grid { gap: 10px; } .vs-supplier-grid { gap: 14px; }
+        .vs-supplier-card { gap: 10px; } .vs-supplier-card > img { width: 48px; height: 48px; }
     }
 }
-
-
-@media (max-width: 900px) {
-
-    .vemser-header-nav {
-        display: none;
-    }
-
-    .vemser-header-actions {
-        margin-left: auto;
-    }
-
-    .vemser-hero {
-        display: flex;
-        flex-direction: column-reverse;
-
-        width: calc(100% - 24px);
-        min-height: auto;
-
-        margin-top: 12px;
-
-        border-radius: 18px;
-    }
-
-    .vemser-hero-media {
-        min-height: 390px;
-    }
-
-    .vemser-hero-content {
-        padding: 42px 32px 60px;
-    }
-
-    .vemser-hero h1 {
-        font-size: clamp(36px, 8vw, 48px);
-    }
-
-    .vemser-hero p {
-        margin: 20px 0 28px;
-        font-size: 15px;
-    }
-
-    .vemser-hero-dots {
-        bottom: 22px;
+@media (max-width: 1000px) {
+    .vemser-home {
+        .vs-header-inner { flex-wrap: wrap; } .vs-nav { order: 4; width: 100%; justify-content: center; }
+        .vs-search { width: 240px; } .vs-quick-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+        .vs-course-grid { gap: 16px; } .vs-supplier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .vs-news-grid { grid-template-columns: 1fr; } .vs-news-card { min-height: 150px; }
+        .vs-news-cover { width: 160px; } .vs-news-cover img { max-height: 190px; }
+        .vs-news-copy h3 { font-size: 16px; } .vs-news-copy p { font-size: 13px; }
+        .vs-documents-copy { max-width: 85%; }
     }
 }
-
-
-@media (max-width: 600px) {
-
-    .vemser-header-container {
-        width: calc(100% - 28px);
-        height: 70px;
+@media (max-width: 700px) {
+    .vemser-home {
+        h2 { font-size: 20px; } .vs-header-inner { padding: 12px 16px; gap: 12px; }
+        .vs-brand { margin-right: auto; } .vs-brand img { width: 110px; }
+        .vs-header-inner > .vs-button { padding: 10px 18px; }
+        .vs-search { order: 3; width: 100%; } .vs-nav { justify-content: flex-start; overflow-x: auto; gap: 23px; }
+        .vs-nav a { padding: 8px 0; }
+        .vs-slide { min-height: 530px; align-items: flex-end; }
+        .vs-hero-image { height: 260px; object-position: center; }
+        .vs-slide::after { background: linear-gradient(0deg, #fffdf9 0%, #fffdf9 47%, rgba(255,253,249,.95) 58%, transparent 83%); }
+        .vs-hero-copy { padding: 235px 26px 55px; }
+        .vs-hero-copy > * { max-width: 100%; } .vs-hero-copy h1, .vs-hero-copy h2 { font-size: 34px; }
+        .vs-hero-copy > p:not(.vs-eyebrow) { font-size: 14px; } .vs-dots { left: 26px; bottom: 10px; }
+        .vs-prev, .vs-next { top: 120px; }
+        .vs-content { padding: 14px 12px 24px; } .vs-section { padding: 20px 16px; }
+        .vs-section-heading { flex-wrap: wrap; gap: 10px; }
+        .vs-section-heading > div { flex: 1; } .vs-section-heading p { font-size: 12px; }
+        .vs-section-icon { font-size: 25px; width: 28px; }
+        .vs-more { width: 100%; margin-left: 38px; font-size: 12px; }
+        .vs-quick-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .vs-course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+        .vs-course-copy { padding: 12px; } .vs-course-copy h3 { font-size: 14px; }
+        .vs-course-copy > span { font-size: 11px; }
+        .vs-supplier-card { padding: 12px; gap: 10px; } .vs-supplier-card h3 { font-size: 13px; }
+        .vs-supplier-card > img, .vs-supplier-card .vs-monogram { width: 38px; height: 38px; }
+        .vs-documents-copy { padding: 24px 18px; max-width: 100%; gap: 12px; }
+        .vs-documents-copy h2 { font-size: 21px; } .vs-documents .vs-section-icon { width: 28px; font-size: 28px; }
+        .vs-documents-image { opacity: .18; width: 100%; } .vs-documents::after { background: rgba(255,249,239,.65); }
+        .vs-news-cover { width: 32%; } .vs-news-copy { padding: 14px; }
+        .vs-news-copy h3 { font-size: 14px; } .vs-news-copy p { font-size: 12px; }
+        .vs-footer { padding: 28px 24px; gap: 20px; } .vs-footer > a img { width: 100px; }
+        .vs-footer-brand { padding-left: 16px; flex: 1; } .vs-footer nav { margin-left: 0; gap: 16px; }
     }
-
-    .vemser-header-logo {
-        width: 120px;
-    }
-
-    .vemser-header-login {
-        min-width: 88px;
-        min-height: 40px;
-        padding: 0 18px;
-    }
-
-    .vemser-hero-media {
-        min-height: 280px;
-    }
-
-    .vemser-hero-content {
-        padding: 34px 24px 56px;
-    }
-
-    .vemser-hero h1 {
-        font-size: 36px;
-    }
-
-    .vemser-moodle-frontpage-content {
-        width: calc(100% - 32px);
-        margin-top: 48px;
-    }
+}
+@media (max-width: 380px) {
+    .vemser-home { .vs-course-grid, .vs-supplier-grid { grid-template-columns: 1fr; } }
+}
+@media (prefers-reduced-motion: reduce) {
+    .vemser-home *, .vemser-home *::before, .vemser-home *::after { transition: none !important; }
 }

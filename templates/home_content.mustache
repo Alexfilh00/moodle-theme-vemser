@@ -1,0 +1,43 @@
+{{#hasquick}}
+<section class="vs-section" id="plataformas" aria-labelledby="vs-quick-title">
+    <header class="vs-section-heading"><i class="fa fa-bolt vs-section-icon" aria-hidden="true"></i><div><h2 id="vs-quick-title">Acesso rápido</h2><p>Suas principais ferramentas e recursos em um só lugar.</p></div>{{#platformsurl}}<a class="vs-more" href="{{.}}">Ver todas as plataformas <span aria-hidden="true">→</span></a>{{/platformsurl}}</header>
+    <div class="vs-quick-grid">{{#quick}}
+        {{#url}}<a class="vs-quick-card" href="{{.}}">{{/url}}{{^url}}<div class="vs-quick-card vs-pending">{{/url}}
+            {{#image}}<img src="{{.}}" alt="" loading="lazy">{{/image}}{{^image}}<span class="vs-monogram" aria-hidden="true">{{initial}}</span>{{/image}}
+            <span>{{name}}</span>{{^url}}<small>Em breve</small>{{/url}}
+        {{#url}}</a>{{/url}}{{^url}}</div>{{/url}}
+    {{/quick}}</div>
+</section>
+{{/hasquick}}
+<section class="vs-section" id="cursos" aria-labelledby="vs-courses-title">
+    <header class="vs-section-heading"><i class="fa fa-graduation-cap vs-section-icon" aria-hidden="true"></i><div><h2 id="vs-courses-title">Cursos em destaque</h2><p>Conteúdos selecionados para o seu desenvolvimento.</p></div><a class="vs-more" href="{{coursesurl}}">Ver todos os cursos <span aria-hidden="true">→</span></a></header>
+    <div class="vs-course-grid">{{#courses}}
+        <a class="vs-course-card" href="{{url}}">
+            <div class="vs-course-cover">{{#image}}<img src="{{.}}" alt="" loading="lazy">{{/image}}{{^image}}<i class="fa fa-graduation-cap" aria-hidden="true"></i>{{/image}}{{#category}}<span class="vs-category">{{{.}}}</span>{{/category}}</div>
+            <div class="vs-course-copy"><h3>{{{name}}}</h3><span>Conhecer o curso <span aria-hidden="true">→</span></span></div>
+        </a>
+    {{/courses}}</div>
+    {{^courses}}<p class="vs-empty">Novos cursos estarão disponíveis em breve.</p>{{/courses}}
+</section>
+{{#hassupplier}}
+<section class="vs-section" aria-labelledby="vs-suppliers-title">
+    <header class="vs-section-heading"><i class="fa fa-building vs-section-icon" aria-hidden="true"></i><div><h2 id="vs-suppliers-title">Conteúdos de fornecedores</h2><p>Atualize seus conhecimentos com os principais parceiros da Veneza.</p></div>{{#suppliersurl}}<a class="vs-more" href="{{.}}">Ver todos <span aria-hidden="true">→</span></a>{{/suppliersurl}}</header>
+    <div class="vs-supplier-grid">{{#supplier}}
+        {{#url}}<a class="vs-supplier-card" href="{{.}}">{{/url}}{{^url}}<div class="vs-supplier-card vs-pending">{{/url}}
+            {{#image}}<img src="{{.}}" alt="" loading="lazy">{{/image}}{{^image}}<span class="vs-monogram" aria-hidden="true">{{initial}}</span>{{/image}}
+            <div><h3>{{name}}</h3><span>{{#url}}Ver conteúdos{{/url}}{{^url}}Em breve{{/url}}</span></div>{{#url}}<span aria-hidden="true">›</span>{{/url}}
+        {{#url}}</a>{{/url}}{{^url}}</div>{{/url}}
+    {{/supplier}}</div>
+</section>
+{{/hassupplier}}
+<section class="vs-documents" id="documentos" aria-labelledby="vs-documents-title">
+    {{#documentsimage}}<img src="{{.}}" class="vs-documents-image" alt="" loading="lazy">{{/documentsimage}}
+    <div class="vs-documents-copy"><i class="fa fa-file-text vs-section-icon" aria-hidden="true"></i><div><h2 id="vs-documents-title">Procedimentos, processos e políticas</h2><p>Acesse documentos, formulários, POP’s e muito mais.</p>{{#documentsurl}}<a class="vs-button vs-button-outline" href="{{.}}">Acessar documentos <span aria-hidden="true">→</span></a>{{/documentsurl}}{{^documentsurl}}<span class="vs-soon">Em breve</span>{{/documentsurl}}</div></div>
+</section>
+<section class="vs-section" id="noticias" aria-labelledby="vs-news-title">
+    <header class="vs-section-heading"><i class="fa fa-bullhorn vs-section-icon" aria-hidden="true"></i><div><h2 id="vs-news-title">Acontece na Veneza</h2><p>Fique por dentro das nossas novidades, comunicados e eventos.</p></div>{{#newsurl}}<a class="vs-more" href="{{.}}">Ver todas as notícias <span aria-hidden="true">→</span></a>{{/newsurl}}</header>
+    <div class="vs-news-grid">{{#news}}
+        <a class="vs-news-card" href="{{url}}"><div class="vs-news-cover">{{#image}}<img src="{{.}}" alt="" loading="lazy">{{/image}}{{^image}}<i class="fa fa-bullhorn" aria-hidden="true"></i>{{/image}}</div><div class="vs-news-copy"><time datetime="{{datetime}}">{{date}}</time><h3>{{{name}}}</h3><p>{{summary}}</p></div></a>
+    {{/news}}</div>
+    {{^news}}<p class="vs-empty">Nenhuma notícia disponível no momento.</p>{{/news}}
+</section>

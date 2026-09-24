@@ -1,159 +1,84 @@
 {{> theme_boost/head }}
-
 <body {{{ bodyattributes }}}>
-
 {{> core/local/toast/wrapper}}
-
-<div id="page-wrapper" class="vemser-home">
-
+<div id="page-wrapper" class="vemser-home" style="{{colours}}">
     {{{ output.standard_top_of_body_html }}}
-
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
-
-    <header class="vemser-home-header">
-
-        <div class="vemser-header-container">
-
-            <a href="{{{ config.wwwroot }}}/" class="vemser-header-brand">
-                <img
-                    src="{{logo}}"
-                    alt="VemSer"
-                    class="vemser-header-logo"
-                >
-            </a>
-
-            <nav class="vemser-header-nav" aria-label="Navegação principal">
-
-                <a href="{{{ config.wwwroot }}}/" class="active">
-                    Início
-                </a>
-
-                <a href="{{{ config.wwwroot }}}/course/">
-                    Cursos
-                </a>
-
-                <a href="#">
-                    Trilhas
-                </a>
-
-                <a href="#">
-                    Notícias
-                </a>
-
-                <a href="#">
-                    Documentos
-                </a>
-
-                <a href="#">
-                    Plataformas
-                </a>
-
+    <a class="sr-only sr-only-focusable" href="#region-main">Ir para o conteúdo</a>
+    <header class="vs-header">
+        <div class="vs-header-inner">
+            <a href="{{config.wwwroot}}/" class="vs-brand" aria-label="VemSer — início"><img src="{{logo}}" alt="VemSer"></a>
+            <nav class="vs-nav" aria-label="Navegação principal">
+                <a href="{{config.wwwroot}}/" aria-current="page">Início</a>
+                <a href="#cursos">Cursos</a>
+                {{#trailsurl}}<a href="{{.}}">Trilhas</a>{{/trailsurl}}
+                <a href="#noticias">Notícias</a>
+                <a href="#documentos">Documentos</a>
+                <a href="#plataformas">Plataformas</a>
             </nav>
-
-            <div class="vemser-header-actions">
-
-                {{#isloggedin}}
-
-                    <a
-                        href="{{{ config.wwwroot }}}/my/"
-                        class="vemser-header-login"
-                    >
-                        Meu painel
-                    </a>
-
-                {{/isloggedin}}
-
-                {{^isloggedin}}
-
-                    <a
-                        href="{{{ config.wwwroot }}}/login/index.php"
-                        class="vemser-header-login"
-                    >
-                        Entrar
-                    </a>
-
-                {{/isloggedin}}
-
-            </div>
-
+            <form class="vs-search" action="{{config.wwwroot}}/course/search.php" method="get" role="search">
+                <label class="sr-only" for="vs-search">Buscar cursos no VemSer</label>
+                <input id="vs-search" name="search" type="search" placeholder="Buscar no VemSer…" required>
+                <button type="submit" aria-label="Buscar cursos"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+            {{#isloggedin}}<a class="vs-button" href="{{config.wwwroot}}/my/">Meu painel</a>{{/isloggedin}}
+            {{^isloggedin}}<a class="vs-button" href="{{config.wwwroot}}/login/index.php"><i class="fa fa-user-o" aria-hidden="true"></i> Entrar</a>{{/isloggedin}}
         </div>
-
     </header>
-
-
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
-
-    <main>
-
-        <section class="vemser-hero">
-
-            <div class="vemser-hero-content">
-
-                <span class="vemser-hero-eyebrow">
-                    {{slide1eyebrow}}
-                </span>
-
-                <h1>
-                    {{slide1title}}
-                </h1>
-
-                <p>
-                    {{slide1description}}
-                </p>
-
-                <a
-                    href="{{slide1url}}"
-                    class="vemser-hero-button"
-                >
-                    {{slide1button}}
-
-                    <span aria-hidden="true">→</span>
-                </a>
-
+    <main id="region-main" tabindex="-1">
+        <section class="vs-hero" aria-label="Destaques" aria-roledescription="carrossel">
+            {{#slides}}
+            <article class="vs-slide" data-vs-slide {{^first}}hidden{{/first}} aria-label="Destaque {{number}}">
+                {{#image}}<img class="vs-hero-image" src="{{.}}" alt="" {{^first}}loading="lazy"{{/first}}>{{/image}}
+                <div class="vs-hero-copy">
+                    <p class="vs-eyebrow">{{eyebrow}}</p>
+                    {{#first}}<h1>{{titlelead}} <span>{{highlight}}</span></h1>{{/first}}
+                    {{^first}}<h2>{{titlelead}} <span>{{highlight}}</span></h2>{{/first}}
+                    <p>{{description}}</p>
+                    {{#url}}<a href="{{.}}" class="vs-button">{{button}} <span aria-hidden="true">→</span></a>{{/url}}
+                </div>
+            </article>
+            {{/slides}}
+            {{#hasslides}}
+            <div class="vs-carousel-controls" hidden>
+                <button type="button" class="vs-prev" aria-label="Destaque anterior">‹</button>
+                <button type="button" class="vs-next" aria-label="Próximo destaque">›</button>
+                <div class="vs-dots">{{#slides}}<button type="button" data-vs-goto="{{number}}" aria-label="Mostrar destaque {{number}}" aria-pressed="{{#first}}true{{/first}}{{^first}}false{{/first}}"></button>{{/slides}}</div>
+                <span class="sr-only vs-slide-status" aria-live="polite" aria-atomic="true"></span>
             </div>
-
-
-            <div class="vemser-hero-media">
-
-                <img
-                    src="{{slide1image}}"
-                    alt=""
-                >
-
-            </div>
-
-
-            <div class="vemser-hero-dots" aria-hidden="true">
-
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
+            {{/hasslides}}
         </section>
-
-
-        <!-- Moodle continua presente no layout. -->
-        <div class="vemser-moodle-frontpage-content">
-            {{{ output.main_content }}}
-        </div>
-
+        <div class="vs-content">{{{ output.main_content }}}</div>
     </main>
-
+    <footer class="vs-footer">
+        <a href="{{config.wwwroot}}/" aria-label="VemSer — início"><img src="{{logo}}" alt="VemSer"></a>
+        <div class="vs-footer-brand"><strong>Veneza Construção</strong><p>Juntos construímos grandes conquistas.</p></div>
+        <nav aria-label="Links institucionais">
+            {{#privacyurl}}<a href="{{.}}">Política de Privacidade</a>{{/privacyurl}}
+            {{#cookiesurl}}<a href="{{.}}">Aviso de Cookies</a>{{/cookiesurl}}
+            {{#supporturl}}<a href="{{.}}">Suporte</a>{{/supporturl}}
+            {{#instagramurl}}<a href="{{.}}" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>{{/instagramurl}}
+            {{#linkedinurl}}<a href="{{.}}" aria-label="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>{{/linkedinurl}}
+            {{#youtubeurl}}<a href="{{.}}" aria-label="YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>{{/youtubeurl}}
+        </nav>
+        <div class="vs-system-footer">{{{ output.standard_footer_html }}}</div>
+    </footer>
 </div>
-
 {{#js}}
-M.util.js_pending('theme_boost/loader');
-
-require(['theme_boost/loader'], function() {
-    M.util.js_complete('theme_boost/loader');
+require(['jquery', 'theme_boost/loader'], function($) {
+    var root = $('.vs-hero'), slides = root.find('[data-vs-slide]'), current = 0;
+    if (slides.length < 2) { return; }
+    root.find('.vs-carousel-controls').prop('hidden', false);
+    function show(index) {
+        current = (index + slides.length) % slides.length;
+        slides.prop('hidden', true).eq(current).prop('hidden', false);
+        root.find('[data-vs-goto]').attr('aria-pressed', 'false').eq(current).attr('aria-pressed', 'true');
+        root.find('.vs-slide-status').text('Destaque ' + (current + 1) + ' de ' + slides.length);
+    }
+    root.find('.vs-prev').on('click', function() { show(current - 1); });
+    root.find('.vs-next').on('click', function() { show(current + 1); });
+    root.find('[data-vs-goto]').on('click', function() { show(Number($(this).attr('data-vs-goto')) - 1); });
 });
 {{/js}}
-
+{{{ output.standard_end_of_body_html }}}
 </body>
 </html>
