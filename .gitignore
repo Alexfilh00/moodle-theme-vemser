@@ -1,0 +1,57 @@
+# Repositório exclusivo do tema: permitir apenas esta estrutura na raiz.
+/*
+!/.gitignore
+!/README.md
+!/config.php
+!/lib.php
+!/settings.php
+!/version.php
+!/layout/
+!/templates/
+!/scss/
+!/lang/
+!/pix/
+!/fonts/
+
+# config.php acima é a definição do tema, nunca a configuração da instalação.
+# Configurações locais, segredos e chaves (em qualquer diretório).
+.env
+.env.*
+*.local.php
+config-local.php
+config.local.php
+credentials*
+secrets*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Dumps, arquivos compactados, logs e backups.
+*.sql
+*.sql.*
+*.sqlite
+*.sqlite3
+*.log
+*.zip
+*.tar
+*.gz
+*.7z
+*.bak
+*.backup
+*.old
+*~
+*.swp
+*.swo
+
+# Arquivos de desenvolvimento e do sistema operacional.
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+node_modules/
+vendor/
+__pycache__/

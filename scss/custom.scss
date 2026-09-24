@@ -1,0 +1,1163 @@
+/* ==========================================================
+   VemSer Theme
+   Moodle 4.5
+   ========================================================== */
+
+
+/* ==========================================================
+   FONTES
+   ========================================================== */
+
+@font-face {
+    font-family: "Inter";
+    src: url("/theme/vemser/fonts/Inter-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/theme/vemser/fonts/Inter-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/theme/vemser/fonts/Inter-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/theme/vemser/fonts/Inter-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ==========================================================
+   TIPOGRAFIA GLOBAL
+   ========================================================== */
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==========================================================
+   LOGIN
+   ========================================================== */
+
+body.vemser-login-page {
+    margin: 0;
+    padding: 0;
+
+    background: #fff;
+
+    overflow-x: hidden;
+}
+
+.vemser-login {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.vemser-login-layout {
+    display: grid;
+
+    /* Mais espaço para nossa arte */
+    grid-template-columns: 62% 38%;
+
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* ==========================================================
+   PAINEL INSTITUCIONAL
+   ========================================================== */
+
+.vemser-login-visual {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   PAINEL DO LOGIN
+   ========================================================== */
+
+.vemser-login-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 100vh;
+
+    padding: 64px 56px;
+
+    background: #fff;
+}
+
+.vemser-login-form {
+    width: 100%;
+    max-width: 420px;
+}
+
+
+/* ==========================================================
+   LOGO / APRESENTAÇÃO
+   ========================================================== */
+
+.vemser-login-heading {
+    margin-bottom: 36px;
+}
+
+.vemser-login-logo {
+    display: block;
+
+    width: 165px;
+    max-width: 55%;
+    height: auto;
+
+    margin: 0 0 46px;
+}
+
+.vemser-login-heading h1 {
+    margin: 0 0 12px;
+
+    color: #191919;
+
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+}
+
+.vemser-login-heading p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #737373;
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   CONTAINER NATIVO DO MOODLE
+   ========================================================== */
+
+.vemser-moodle-login {
+    width: 100%;
+}
+
+.vemser-moodle-login .login-wrapper {
+    width: 100%;
+
+    padding: 0;
+    margin: 0;
+}
+
+.vemser-moodle-login .login-container {
+    width: 100%;
+    max-width: none;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+
+    border: 0;
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
+
+/*
+ * O Moodle já gera "Acesso a VemSer".
+ * Nosso layout possui um título próprio.
+ */
+
+.vemser-moodle-login .login-heading {
+    display: none;
+}
+
+
+/* ==========================================================
+   FORMULÁRIO
+   ========================================================== */
+
+.vemser-moodle-login .login-form {
+    width: 100%;
+}
+
+.vemser-moodle-login .login-form-username,
+.vemser-moodle-login .login-form-password {
+    margin-bottom: 14px;
+}
+
+
+/* ==========================================================
+   INPUTS
+   ========================================================== */
+
+.vemser-moodle-login input.form-control {
+    width: 100%;
+    min-height: 56px;
+
+    padding: 0 18px;
+
+    color: #252525;
+
+    background: #fff;
+
+    border: 1px solid #dedede;
+    border-radius: 12px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    box-shadow: none;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.vemser-moodle-login input.form-control::placeholder {
+    color: #929292;
+
+    opacity: 1;
+}
+
+.vemser-moodle-login input.form-control:hover {
+    border-color: #c8c8c8;
+}
+
+.vemser-moodle-login input.form-control:focus {
+    color: #252525;
+
+    background: #fff;
+
+    border-color: #ff8318;
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 131, 24, 0.11);
+}
+
+
+/* ==========================================================
+   BOTÃO ENTRAR
+   ========================================================== */
+
+.vemser-moodle-login .login-form-submit {
+    margin-top: 8px;
+}
+
+.vemser-moodle-login .login-form-submit .btn-primary {
+    width: 100%;
+}
+
+.vemser-moodle-login .btn-primary {
+    min-height: 54px;
+
+    padding: 0 28px;
+
+    color: #fff;
+
+    background: #ff7f18;
+
+    border: 0;
+    border-radius: 12px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 12px rgba(255, 127, 24, 0.15);
+
+    transition:
+        background-color 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.vemser-moodle-login .btn-primary:hover,
+.vemser-moodle-login .btn-primary:focus {
+    color: #fff;
+
+    background: #eb6e0a;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px rgba(235, 110, 10, 0.22);
+}
+
+.vemser-moodle-login .btn-primary:active {
+    background: #d96208;
+
+    transform: translateY(0);
+
+    box-shadow:
+        0 3px 8px rgba(217, 98, 8, 0.18);
+}
+
+
+/* ==========================================================
+   ESQUECEU A SENHA / LINKS
+   ========================================================== */
+
+.vemser-moodle-login a {
+    color: #d95f0c;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color 0.18s ease;
+}
+
+.vemser-moodle-login a:hover {
+    color: #a94408;
+
+    text-decoration: none;
+}
+
+.vemser-moodle-login .login-form-forgotpassword {
+    margin-top: 14px;
+}
+
+
+/* ==========================================================
+   DIVISORES
+   ========================================================== */
+
+.vemser-moodle-login .login-divider {
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    border-color: #ededed;
+}
+
+
+/* ==========================================================
+   BOTÕES SECUNDÁRIOS
+   ========================================================== */
+
+.vemser-moodle-login .btn-secondary {
+    min-height: 42px;
+
+    padding-left: 16px;
+    padding-right: 16px;
+
+    color: #555;
+
+    background: #f7f7f7;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 9px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    box-shadow: none;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.vemser-moodle-login .btn-secondary:hover {
+    color: #333;
+
+    background: #f0f0f0;
+
+    border-color: #dcdcdc;
+}
+
+
+/* ==========================================================
+   IDIOMA / COOKIES
+   ========================================================== */
+
+.vemser-moodle-login .login-languagemenu {
+    margin-top: 20px;
+}
+
+.vemser-moodle-login .login-languagemenu,
+.vemser-moodle-login .login-languagemenu a {
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   DESKTOP MENOR
+   ========================================================== */
+
+@media (max-width: 1280px) {
+
+    .vemser-login-layout {
+        grid-template-columns: 60% 40%;
+    }
+
+    .vemser-login-content {
+        padding: 52px 42px;
+    }
+
+    .vemser-login-form {
+        max-width: 400px;
+    }
+
+    .vemser-login-heading h1 {
+        font-size: 30px;
+    }
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1000px) {
+
+    .vemser-login-layout {
+        grid-template-columns: 52% 48%;
+    }
+
+    .vemser-login-content {
+        padding: 42px 34px;
+    }
+
+    .vemser-login-logo {
+        width: 150px;
+
+        margin-bottom: 36px;
+    }
+
+    .vemser-login-heading h1 {
+        font-size: 29px;
+    }
+}
+
+
+/* ==========================================================
+   TABLET VERTICAL
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .vemser-login-layout {
+        display: block;
+    }
+
+    .vemser-login-visual {
+        min-height: 320px;
+
+        background-position: center center;
+    }
+
+    .vemser-login-content {
+        min-height: auto;
+
+        padding: 48px 26px;
+    }
+
+    .vemser-login-form {
+        max-width: 450px;
+    }
+}
+
+
+/* ==========================================================
+   SMARTPHONE
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    /*
+     * No smartphone removemos a imagem para priorizar
+     * velocidade e acesso ao formulário.
+     */
+
+    .vemser-login-visual {
+        display: none;
+    }
+
+    .vemser-login-content {
+        min-height: 100vh;
+
+        padding: 36px 22px;
+    }
+
+    .vemser-login-form {
+        max-width: 100%;
+    }
+
+    .vemser-login-logo {
+        width: 145px;
+
+        margin-bottom: 34px;
+    }
+
+    .vemser-login-heading {
+        margin-bottom: 28px;
+    }
+
+    .vemser-login-heading h1 {
+        font-size: 28px;
+
+        letter-spacing: -0.7px;
+    }
+
+    .vemser-login-heading p {
+        font-size: 14px;
+    }
+
+    .vemser-moodle-login input.form-control {
+        min-height: 54px;
+    }
+}
+
+
+/* ==========================================================
+   SMARTPHONE PEQUENO
+   ========================================================== */
+
+@media (max-width: 380px) {
+
+    .vemser-login-content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .vemser-login-logo {
+        width: 135px;
+    }
+
+    .vemser-login-heading h1 {
+        font-size: 26px;
+    }
+}
+
+/* ==========================================================
+   LOGIN V3 - ACABAMENTO FINAL
+   ========================================================== */
+
+
+/* Link de recuperação */
+
+.vemser-moodle-login .login-form-forgotpassword {
+    margin-top: 14px;
+    margin-bottom: 26px;
+}
+
+.vemser-moodle-login .login-form-forgotpassword a {
+    color: #e9680c;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.vemser-moodle-login .login-form-forgotpassword a:hover {
+    color: #bd4f05;
+}
+
+
+/* ==========================================================
+   DIVISOR
+   ========================================================== */
+
+.vemser-moodle-login .login-divider {
+    position: relative;
+
+    margin: 26px 0;
+
+    border: 0;
+    border-top: 1px solid #eeeeee;
+}
+
+
+/* ==========================================================
+   ACESSO COMO VISITANTE
+   ========================================================== */
+
+.vemser-moodle-login .login-guest {
+    width: 100%;
+}
+
+.vemser-moodle-login .login-guest .btn-secondary {
+    width: 100%;
+    min-height: 48px;
+
+    color: #444;
+
+    background: #fafafa;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.vemser-moodle-login .login-guest .btn-secondary:hover {
+    background: #f5f5f5;
+
+    border-color: #d8d8d8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================================
+   ÁREA INFERIOR
+   ========================================================== */
+
+.vemser-moodle-login .login-languagemenu {
+    margin-top: 28px;
+}
+
+.vemser-moodle-login .login-languagemenu,
+.vemser-moodle-login .login-languagemenu a {
+    color: #777;
+
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/* Botões menores do Moodle */
+
+.vemser-moodle-login .login-languagemenu .btn,
+.vemser-moodle-login button[data-modal="alert"] {
+    min-height: auto;
+
+    padding: 7px 10px;
+
+    color: #777;
+
+    background: transparent;
+
+    border: 0;
+
+    font-size: 12px;
+
+    box-shadow: none;
+}
+
+
+/* ==========================================================
+   FOCO / ACESSIBILIDADE
+   ========================================================== */
+
+.vemser-moodle-login a:focus-visible,
+.vemser-moodle-login button:focus-visible {
+    outline: 2px solid #ff7f18;
+    outline-offset: 3px;
+}
+
+
+/* ==========================================================
+   AJUSTE DE ALTURA
+   ========================================================== */
+
+@media (min-width: 1001px) and (max-height: 800px) {
+
+    .vemser-login-content {
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+
+    .vemser-login-logo {
+        width: 145px;
+
+        margin-bottom: 32px;
+    }
+
+    .vemser-login-heading {
+        margin-bottom: 28px;
+    }
+
+    .vemser-login-heading h1 {
+        font-size: 29px;
+    }
+
+    .vemser-moodle-login input.form-control {
+        min-height: 52px;
+    }
+
+    .vemser-moodle-login .btn-primary {
+        min-height: 50px;
+    }
+}
+
+/* ==========================================================
+   VEMSER - PÁGINA INICIAL
+   ========================================================== */
+
+.vemser-frontpage {
+    margin: 0;
+    background: #fff;
+}
+
+.vemser-home {
+    min-height: 100vh;
+    background: #fff;
+}
+
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.vemser-home-header {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid #eeeeee;
+}
+
+.vemser-header-container {
+    width: min(1440px, calc(100% - 64px));
+    height: 82px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.vemser-header-brand {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.vemser-header-logo {
+    display: block;
+    width: 145px;
+    height: auto;
+}
+
+.vemser-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+}
+
+.vemser-header-nav a {
+    position: relative;
+    color: #4b4b4b;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+.vemser-header-nav a:hover,
+.vemser-header-nav a.active {
+    color: #e9680c;
+}
+
+.vemser-header-nav a.active::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    left: 0;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+    background: #f47721;
+}
+
+.vemser-header-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 18px;
+}
+
+.vemser-header-login {
+    display: inline-flex;
+    min-width: 108px;
+    min-height: 44px;
+    padding: 0 22px;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #fff !important;
+    background: #f47721;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none !important;
+
+    box-shadow: 0 8px 20px rgba(244, 119, 33, 0.18);
+
+    transition:
+        transform 0.18s ease,
+        background-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.vemser-header-login:hover {
+    background: #df650f;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(244, 119, 33, 0.24);
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.vemser-hero {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 43% 57%;
+
+    width: min(1520px, calc(100% - 48px));
+    min-height: 590px;
+
+    margin: 24px auto 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8f1 0%,
+            #fff4e8 55%,
+            #fff0df 100%
+        );
+
+    border-radius: 24px;
+}
+
+.vemser-hero-content {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 72px 40px 72px 72px;
+}
+
+.vemser-hero-eyebrow {
+    display: inline-flex;
+    margin-bottom: 18px;
+
+    color: #e9680c;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.vemser-hero h1 {
+    max-width: 570px;
+    margin: 0;
+
+    color: #292929;
+
+    font-size: clamp(42px, 4vw, 64px);
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+}
+
+.vemser-hero p {
+    max-width: 530px;
+
+    margin: 26px 0 32px;
+
+    color: #676767;
+
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.vemser-hero-button {
+    display: inline-flex;
+
+    min-height: 50px;
+    padding: 0 24px;
+
+    align-items: center;
+    gap: 14px;
+
+    color: #fff !important;
+    background: #f47721;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none !important;
+
+    box-shadow: 0 10px 25px rgba(244, 119, 33, 0.22);
+
+    transition:
+        transform 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.vemser-hero-button:hover {
+    background: #df650f;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   HERO IMAGE
+   ========================================================== */
+
+.vemser-hero-media {
+    position: relative;
+    min-height: 590px;
+    overflow: hidden;
+}
+
+.vemser-hero-media::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        #fff4e8 0%,
+        rgba(255, 244, 232, 0.55) 8%,
+        rgba(255, 244, 232, 0) 30%
+    );
+
+    pointer-events: none;
+}
+
+.vemser-hero-media img {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    inset: 0;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+
+/* ==========================================================
+   CAROUSEL INDICATORS
+   ========================================================== */
+
+.vemser-hero-dots {
+    position: absolute;
+    z-index: 5;
+
+    bottom: 25px;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    transform: translateX(-50%);
+}
+
+.vemser-hero-dots span {
+    width: 7px;
+    height: 7px;
+
+    background: rgba(60, 60, 60, 0.25);
+
+    border-radius: 999px;
+
+    transition: all 0.2s ease;
+}
+
+.vemser-hero-dots span.active {
+    width: 25px;
+    background: #f47721;
+}
+
+
+/* ==========================================================
+   CONTEÚDO NATIVO MOODLE
+   ========================================================== */
+
+.vemser-moodle-frontpage-content {
+    width: min(1440px, calc(100% - 64px));
+    margin: 64px auto;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+@media (max-width: 1100px) {
+
+    .vemser-header-container {
+        width: calc(100% - 40px);
+        gap: 24px;
+    }
+
+    .vemser-header-nav {
+        gap: 20px;
+    }
+
+    .vemser-hero {
+        grid-template-columns: 48% 52%;
+        width: calc(100% - 32px);
+    }
+
+    .vemser-hero-content {
+        padding: 56px 36px;
+    }
+
+    .vemser-hero h1 {
+        font-size: 44px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .vemser-header-nav {
+        display: none;
+    }
+
+    .vemser-header-actions {
+        margin-left: auto;
+    }
+
+    .vemser-hero {
+        display: flex;
+        flex-direction: column-reverse;
+
+        width: calc(100% - 24px);
+        min-height: auto;
+
+        margin-top: 12px;
+
+        border-radius: 18px;
+    }
+
+    .vemser-hero-media {
+        min-height: 390px;
+    }
+
+    .vemser-hero-content {
+        padding: 42px 32px 60px;
+    }
+
+    .vemser-hero h1 {
+        font-size: clamp(36px, 8vw, 48px);
+    }
+
+    .vemser-hero p {
+        margin: 20px 0 28px;
+        font-size: 15px;
+    }
+
+    .vemser-hero-dots {
+        bottom: 22px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .vemser-header-container {
+        width: calc(100% - 28px);
+        height: 70px;
+    }
+
+    .vemser-header-logo {
+        width: 120px;
+    }
+
+    .vemser-header-login {
+        min-width: 88px;
+        min-height: 40px;
+        padding: 0 18px;
+    }
+
+    .vemser-hero-media {
+        min-height: 280px;
+    }
+
+    .vemser-hero-content {
+        padding: 34px 24px 56px;
+    }
+
+    .vemser-hero h1 {
+        font-size: 36px;
+    }
+
+    .vemser-moodle-frontpage-content {
+        width: calc(100% - 32px);
+        margin-top: 48px;
+    }
+}

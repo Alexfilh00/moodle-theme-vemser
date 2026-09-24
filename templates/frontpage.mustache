@@ -1,0 +1,159 @@
+{{> theme_boost/head }}
+
+<body {{{ bodyattributes }}}>
+
+{{> core/local/toast/wrapper}}
+
+<div id="page-wrapper" class="vemser-home">
+
+    {{{ output.standard_top_of_body_html }}}
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="vemser-home-header">
+
+        <div class="vemser-header-container">
+
+            <a href="{{{ config.wwwroot }}}/" class="vemser-header-brand">
+                <img
+                    src="{{logo}}"
+                    alt="VemSer"
+                    class="vemser-header-logo"
+                >
+            </a>
+
+            <nav class="vemser-header-nav" aria-label="Navegação principal">
+
+                <a href="{{{ config.wwwroot }}}/" class="active">
+                    Início
+                </a>
+
+                <a href="{{{ config.wwwroot }}}/course/">
+                    Cursos
+                </a>
+
+                <a href="#">
+                    Trilhas
+                </a>
+
+                <a href="#">
+                    Notícias
+                </a>
+
+                <a href="#">
+                    Documentos
+                </a>
+
+                <a href="#">
+                    Plataformas
+                </a>
+
+            </nav>
+
+            <div class="vemser-header-actions">
+
+                {{#isloggedin}}
+
+                    <a
+                        href="{{{ config.wwwroot }}}/my/"
+                        class="vemser-header-login"
+                    >
+                        Meu painel
+                    </a>
+
+                {{/isloggedin}}
+
+                {{^isloggedin}}
+
+                    <a
+                        href="{{{ config.wwwroot }}}/login/index.php"
+                        class="vemser-header-login"
+                    >
+                        Entrar
+                    </a>
+
+                {{/isloggedin}}
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <main>
+
+        <section class="vemser-hero">
+
+            <div class="vemser-hero-content">
+
+                <span class="vemser-hero-eyebrow">
+                    {{slide1eyebrow}}
+                </span>
+
+                <h1>
+                    {{slide1title}}
+                </h1>
+
+                <p>
+                    {{slide1description}}
+                </p>
+
+                <a
+                    href="{{slide1url}}"
+                    class="vemser-hero-button"
+                >
+                    {{slide1button}}
+
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+
+            <div class="vemser-hero-media">
+
+                <img
+                    src="{{slide1image}}"
+                    alt=""
+                >
+
+            </div>
+
+
+            <div class="vemser-hero-dots" aria-hidden="true">
+
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Moodle continua presente no layout. -->
+        <div class="vemser-moodle-frontpage-content">
+            {{{ output.main_content }}}
+        </div>
+
+    </main>
+
+</div>
+
+{{#js}}
+M.util.js_pending('theme_boost/loader');
+
+require(['theme_boost/loader'], function() {
+    M.util.js_complete('theme_boost/loader');
+});
+{{/js}}
+
+</body>
+</html>

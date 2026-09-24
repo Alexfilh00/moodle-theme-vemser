@@ -1,0 +1,58 @@
+{{> theme_boost/head }}
+
+<body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
+
+<div id="page-wrapper" class="vemser-login">
+
+    {{{ output.standard_top_of_body_html }}}
+
+    <main class="vemser-login-layout">
+
+        <section
+            class="vemser-login-visual"
+            style="background-image: url('{{loginbackground}}');"
+            aria-label="VemSer - Plataforma de desenvolvimento e aprendizagem">
+        </section>
+
+        <section class="vemser-login-content">
+
+            <div class="vemser-login-form">
+
+                <div class="vemser-login-heading">
+
+                    <img
+                        src="{{vemserlogo}}"
+                        alt="VemSer"
+                        class="vemser-login-logo"
+                    >
+
+                    <h1>Bem-vindo de volta!</h1>
+
+                    <p>
+                        Acesse sua conta para continuar aprendendo e se desenvolvendo.
+                    </p>
+
+                </div>
+
+                <div class="vemser-moodle-login">
+                    {{{ output.main_content }}}
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
+
+{{#js}}
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader'], function() {
+    M.util.js_complete('theme_boost/loader');
+});
+{{/js}}
