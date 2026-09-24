@@ -72,3 +72,37 @@ Para exibir os cursos e avisos já cadastrados, configure os itens da página in
 Mantenha o repositório restrito à pasta `theme/vemser`. O `.gitignore` permite na raiz apenas os arquivos e diretórios previstos para o tema, além de excluir arquivos locais, segredos e backups. Ao criar novos diretórios ou arquivos na raiz, atualize essa lista explicitamente.
 
 Não adicione configurações da instalação, credenciais, dumps de banco de dados ou arquivos de usuários. Alterações em PHP, Mustache e SCSS podem exigir a limpeza dos caches do Moodle.
+
+### Convenção de commits
+
+Todos os commits, inclusive o inicial, devem seguir Conventional Commits:
+
+```text
+<tipo>[escopo opcional]: <descrição curta em português>
+```
+
+Escolha o tipo conforme o objetivo da mudança:
+
+- `feat`: nova funcionalidade.
+- `fix`: correção de comportamento.
+- `docs`: documentação.
+- `style`: formatação do código, sem mudança de comportamento.
+- `refactor`: reorganização do código sem nova funcionalidade ou correção.
+- `test`: testes.
+- `build`: dependências ou processo de compilação.
+- `ci`: integração contínua.
+- `chore`: manutenção que não se enquadre nos demais tipos.
+
+Mantenha os títulos curtos e em português, preservando os tipos padronizados em inglês. Separe mudanças com objetivos diferentes em commits próprios. Alterações visuais que adicionem funcionalidades ou corrijam problemas devem usar `feat` ou `fix`, conforme o caso.
+
+Exemplos:
+
+```text
+feat: adiciona tema VemSer
+docs: registra convenção de commits
+fix(login): corrige carregamento de scripts
+```
+
+Para mudanças incompatíveis, use `!` após o tipo ou escopo e explique o impacto no corpo do commit com `BREAKING CHANGE:`.
+
+Não reescreva commits já publicados. Faça as correções em novos commits; ajustes de histórico ficam restritos a commits ainda locais.
