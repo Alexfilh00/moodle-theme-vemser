@@ -138,3 +138,51 @@ fix(login): corrige carregamento de scripts
 Para mudanças incompatíveis, use `!` após o tipo ou escopo e explique o impacto no corpo do commit com `BREAKING CHANGE:`.
 
 Não reescreva commits já publicados. Faça as correções em novos commits; ajustes de histórico ficam restritos a commits ainda locais.
+
+
+## Ponto de retomada — 29/09/2026
+
+Projeto pausado após a publicação da página inicial configurável. Base de código dessa etapa: commit `16caf9c`, na branch `main` do repositório https://github.com/Alexfilh00/moodle-theme-vemser.
+
+### O que está pronto
+
+- Tema para Moodle 4.5.5, desenvolvido em Windows + WSL.
+- Login finalizado: preservar seus arquivos e estilos nas próximas alterações.
+- Página inicial pública com busca, até quatro destaques, acesso rápido, fornecedores, documentos e rodapé.
+- Cards integrados aos seis cursos e três avisos da instalação local, respeitando permissões.
+- Configuração administrativa de imagens, links e oito cores da página inicial.
+- Correção da entrega das imagens administrativas e integração dos scripts no final da página inicial.
+
+Na etapa anterior, foram validados PHP, SCSS, campos administrativos, busca e página pública em 1440, 390 e 320 px, sem rolagem horizontal, imagens quebradas ou erros JavaScript. O carrossel foi testado com dois slides simulados. Esses resultados descrevem o ambiente de origem; devem ser conferidos novamente no computador de destino.
+
+### Próximo passo
+
+Preencher as imagens e os links reais em **Administração do site → Aparência → Temas → VemSer** e ajustar a fidelidade visual à referência fornecida na conversa. Os cursos locais ainda tinham nomes de teste. As capas dos avisos precisam ser reenviadas no Moodle atual: as imagens do conteúdo apontavam para outro site, incluindo um link de rascunho. Preservar o login e não inventar duração, nível ou outros dados dos cursos.
+
+### Continuar em outro computador
+
+1. Prepare uma instalação compatível do Moodle 4.5.5 e siga a seção de instalação deste README.
+2. Se o tema ainda não existir no destino, clone o repositório a partir da raiz do Moodle:
+
+   ```bash
+   git clone https://github.com/Alexfilh00/moodle-theme-vemser.git theme/vemser
+   ```
+
+   Se o repositório do tema já existir, confira alterações locais antes de atualizar:
+
+   ```bash
+   git -C theme/vemser status
+   git -C theme/vemser pull --ff-only
+   ```
+
+3. Para reproduzir os mesmos cursos, avisos, configurações e uploads, transfira por um meio privado um backup consistente do banco de dados e do diretório `moodledata`. Prepare o `config.php` da instalação para o banco e os caminhos do novo ambiente. O clone do tema, sozinho, não contém esses dados. Não envie backups ou credenciais para este repositório público.
+4. Guarde também a imagem de referência visual enviada na conversa; ela não está versionada neste repositório.
+5. Limpe os caches do Moodle e abra a página inicial sem autenticação para validar o novo ambiente.
+
+Não foi criado backup do banco de dados ou do `moodledata` nesta pausa. As ferramentas temporárias de teste usadas no ambiente de origem também não fazem parte do repositório.
+
+### Contexto para uma nova conversa
+
+Copie esta instrução ao retomar:
+
+> Estamos continuando o tema theme_vemser para Moodle 4.5.5. Leia o README, especialmente o ponto de retomada de 29/09/2026, e confira o estado do Git antes de alterar arquivos. O login está finalizado e deve ser preservado. A página inicial pública já integra seis cursos e três avisos e oferece configurações administrativas de imagens, links e cores. Agora vamos cadastrar os conteúdos visuais reais e refinar a página conforme a referência que vou fornecer. Use Conventional Commits com títulos curtos em português, separe objetivos diferentes e não reescreva commits publicados.
